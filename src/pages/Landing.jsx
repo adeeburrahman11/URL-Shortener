@@ -34,12 +34,12 @@ const Landing = () => {
           onChange={(e) => setLongUrl(e.target.value)}
           className="h-full flex-1 p-4"
         />
-        <Button className="h-full" type="submit" variant="destructive">
+        <Button className="h-full bg-blue-500" type="submit" variant="outline">
           Shorten!
         </Button>
       </form>
       <img src="/banner.png" alt="banner" className="w-full my-11 md:px-11" />
-      <Accordion type="multiple" collapsible className="w-full md:px-11">
+      <Accordion type="multiple" collapsible="true" className="w-full md:px-11">
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
           <AccordionContent>
