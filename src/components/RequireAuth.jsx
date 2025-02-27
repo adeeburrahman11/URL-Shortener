@@ -1,7 +1,7 @@
 import { UrlState } from "@/Context";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PulseLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 // eslint-disable-next-line react/prop-types
 function RequireAuth({ children }) {
@@ -13,7 +13,7 @@ function RequireAuth({ children }) {
     if (!isAuthenticated && loading === false) navigate("/auth");
   }, [isAuthenticated, loading]);
 
-  if (loading) return <PulseLoader size={10} color="#51a2ff" />;
+  if (loading) return <BarLoader width={"100%"} color="#51a2ff" />;
 
   if (isAuthenticated) return children;
 }
