@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect } from "react";
 import UseFetch from "./hooks/UseFetch";
 import { getCurrentUser } from "./db/apiAuth";
 
-const UrlContext = createContext;
+const UrlContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 const UrlProvider = ({ children }) => {
