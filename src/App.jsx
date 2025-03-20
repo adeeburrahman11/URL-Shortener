@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Auth />,
       },
       {
-        path: "/link",
+        path: "/link/:id",
         element: (
           <RequireAuth>
             <Link />
