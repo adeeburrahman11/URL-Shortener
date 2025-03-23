@@ -75,3 +75,18 @@ export async function getLongUrl(id) {
 
   return data;
 }
+export async function getUrl({ id, user_id }) {
+  // console.log("getUrl called with:", { id });
+  const { data, error } = await supabase
+    .from("URLs")
+    .select("*")
+    .eq("id", id)
+    .eq("user_id", user_id)
+    .single();
+  if (error) {
+    console.error(error.message);
+    throw new Error("Short URL not found");
+  }
+
+  return data;
+}
