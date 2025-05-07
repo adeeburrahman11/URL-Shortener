@@ -7,8 +7,12 @@ import { Copy, Download, LinkIcon, Trash } from "lucide-react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader, BeatLoader } from "react-spinners";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import LocationStats from "@/components/LocationStats";
+import DeviceStats from "@/components/DeviceStats";
 
 const Link = () => {
+  const linkzap = "https://linkzap.ar/";
   const downloadImage = () => {
     const imgUrl = url?.qr;
     const fileName = url?.title;
@@ -106,7 +110,11 @@ const Link = () => {
               <Download />
             </Button>
             <Button variant="ghost" onClick={() => fnDelete()}>
-              {loadingDelete ? <BeatLoader /> : <Trash />}
+              {loadingDelete ? (
+                <BeatLoader size={5} color="white" />
+              ) : (
+                <Trash />
+              )}
             </Button>
           </div>
           <img
@@ -115,7 +123,35 @@ const Link = () => {
             className="w-full self-center sm:self-start ring-blue-500 p-1 object-contain"
           />
         </div>
-        <div className="sm:w-3/5"></div>
+
+        <Card className="sm:w-3/5">
+          <CardHeader>
+            <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
+          </CardHeader>
+          {stats && stats?.length ? (
+            <CardContent className="flex flex-col gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Total Clicks</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{stats?.length}</p>
+                </CardContent>
+              </Card>
+
+              <CardTitle>Location data</CardTitle>
+              <LocationStats stats={stats}></LocationStats>
+              <CardTitle>Device Info</CardTitle>
+              <DeviceStats stats={stats}></DeviceStats>
+            </CardContent>
+          ) : (
+            <CardContent>
+              {loadingStats === false
+                ? "No Stats yet"
+                : "Loading Statistics..."}
+            </CardContent>
+          )}
+        </Card>
       </div>
     </>
   );
