@@ -71,7 +71,7 @@ const Dashboard = () => {
         <Input
           type="text"
           placeholder="Filter Links..."
-          value={""}
+          value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <Filter className="absolute top-2 right-2 p-1" />
