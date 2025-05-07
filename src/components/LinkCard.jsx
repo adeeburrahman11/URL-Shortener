@@ -6,7 +6,8 @@ import { deleteUrl } from "@/db/apiUrls";
 import { BeatLoader } from "react-spinners";
 
 const LinkCard = ({ url, fetchUrls }) => {
-  const linkzap = "https://linkzap.ar/";
+  // const linkzap = "https://linkzap.ar/";
+  const linkzap = import.meta.env.VERCEL_URL;
 
   const downloadImage = () => {
     const imgUrl = url?.qr;

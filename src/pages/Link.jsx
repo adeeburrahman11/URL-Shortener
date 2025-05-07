@@ -12,7 +12,9 @@ import LocationStats from "@/components/LocationStats";
 import DeviceStats from "@/components/DeviceStats";
 
 const Link = () => {
-  const linkzap = "https://linkzap.ar/";
+  // const linkzap = "https://linkzap.ar/";
+  const linkzap = import.meta.env.VERCEL_URL;
+
   const downloadImage = () => {
     const imgUrl = url?.qr;
     const fileName = url?.title;
@@ -77,10 +79,10 @@ const Link = () => {
           </span>
           <a
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline"
-            href={`https://linkzap.ar/${link}`}
+            href={`https://url-shortener-lovat-phi.vercel.app/${link}`}
             target="_blank"
           >
-            https://linkzap.ar/{link}
+            https://url-shortener-lovat-phi.vercel.app/{link}
           </a>
           <a
             className="flex items-center gap-1 hover:underline cursor-pointer"

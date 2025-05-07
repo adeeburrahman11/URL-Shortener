@@ -121,7 +121,7 @@ const CreateLink = () => {
           />
           {errors.longUrl && <Error message={errors.longUrl} />}
           <div className="flex items-center gap-2">
-            <Card className="p-2">linkzap.ar</Card> /
+            <Card className="p-2">url-shortener-lovat-phi.vercel.app</Card> /
             <Input
               id="customUrl"
               placeholder="Custom Link (Optional)"
