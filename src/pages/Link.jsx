@@ -79,10 +79,10 @@ const Link = () => {
           </span>
           <a
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline"
-            href={`https://url-shortener-lovat-phi.vercel.app/${link}`}
+            href={`https://linkzapurl.vercel.app/${link}`}
             target="_blank"
           >
-            https://url-shortener-lovat-phi.vercel.app/{link}
+            https://linkzapurl.vercel.app/{link}
           </a>
           <a
             className="flex items-center gap-1 hover:underline cursor-pointer"
