@@ -78,7 +78,7 @@ const Link = () => {
             {url?.title}
           </span>
           <a
-            className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline"
+            className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline break-all"
             href={`https://linkzapurl.vercel.app/${link}`}
             target="_blank"
           >
