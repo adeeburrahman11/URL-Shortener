@@ -41,7 +41,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {linkzap}
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
-        <span className="flex items-center gap-1 hover:underline cursor-pointer">
+        <span className="flex items-center gap-1 hover:underline cursor-pointer break-all">
           {url?.original_url}
         </span>
         <span className="flex items-end font-extralight text-sm flex-1">
