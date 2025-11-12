@@ -11,7 +11,16 @@ const AppLayout = () => {
         </main>
       </div>
       <div>
-        <div className="p-10 text-center bg-gray-800 mt-10">Made by me</div>
+        <div className="p-10 text-center bg-gray-800 mt-10">
+          Made with{" "}
+          <span className="animate animate-pulse cursor-default">❤️</span> by{" "}
+          <a
+            href="https://adeeburrahman.vercel.app/"
+            className="font-bold hover:underline"
+          >
+            Adeebur Rahman
+          </a>
+        </div>
       </div>
     </>
   );
