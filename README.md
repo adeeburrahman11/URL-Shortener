@@ -1,4 +1,3 @@
----
 # URL Shortener
 
 A small, production-ready React application built with Vite that provides a URL shortening service and analytics dashboard. The app uses Supabase as the backend for authentication, URL records and click tracking, and includes responsive UI components built with Tailwind CSS and Radix primitives.
