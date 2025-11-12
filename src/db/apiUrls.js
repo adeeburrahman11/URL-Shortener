@@ -2,7 +2,7 @@ import supabase, { supabaseUrl } from "./supabase";
 
 export async function getUrls(user_id) {
   const { data, error } = await supabase
-    .from("URLs")
+    .from("urls")
     .select("*")
     .eq("user_id", user_id);
 
@@ -15,7 +15,7 @@ export async function getUrls(user_id) {
 }
 
 export async function deleteUrl(id) {
-  const { data, error } = await supabase.from("URLs").delete("*").eq("id", id);
+  const { data, error } = await supabase.from("urls").delete("*").eq("id", id);
 
   if (error) {
     console.error(error.message);
@@ -40,7 +40,7 @@ export async function createUrl(
   const qr = `${supabaseUrl}/storage/v1/object/public/qr/${fileName}`;
 
   const { data, error } = await supabase
-    .from("URLs")
+    .from("urls")
     .insert([
       {
         title,
@@ -63,7 +63,7 @@ export async function createUrl(
 
 export async function getLongUrl(id) {
   const { data, error } = await supabase
-    .from("URLs")
+    .from("urls")
     .select("id,original_url")
     .or(`short_url.eq.${id},custom_url.eq.${id}`)
     .single();
@@ -78,7 +78,7 @@ export async function getLongUrl(id) {
 export async function getUrl({ id, user_id }) {
   // console.log("getUrl called with:", { id });
   const { data, error } = await supabase
-    .from("URLs")
+    .from("urls")
     .select("*")
     .eq("id", id)
     .eq("user_id", user_id)

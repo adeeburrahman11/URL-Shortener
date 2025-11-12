@@ -92,7 +92,7 @@ const CreateLink = () => {
           if (!res) setSearchParams({});
         }}
       >
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button variant="outline" className="bg-blue-500">
             Create New Link
           </Button>
@@ -121,7 +121,7 @@ const CreateLink = () => {
           />
           {errors.longUrl && <Error message={errors.longUrl} />}
           <div className="flex items-center gap-2">
-            <Card className="p-2">url-shortener-lovat-phi.vercel.app</Card> /
+            <Card className="p-2">linkzapurl.vercel.app</Card> /
             <Input
               id="customUrl"
               placeholder="Custom Link (Optional)"
