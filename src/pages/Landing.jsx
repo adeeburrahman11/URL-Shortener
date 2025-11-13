@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Helmet } from "react-helmet-async"; // <-- Removed this import
 
 const Landing = () => {
   const [longUrl, setLongUrl] = useState();
@@ -44,8 +43,6 @@ const Landing = () => {
 
   return (
     <div className="flex flex-col items-center">
-      {/* React 19+ automatically hoists these tags to the <head>
-       */}
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <script
