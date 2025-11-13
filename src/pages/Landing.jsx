@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const Landing = () => {
   const [longUrl, setLongUrl] = useState();
@@ -40,9 +40,9 @@ const Landing = () => {
 
   return (
     <div className="flex flex-col items-center">
-      {/* <Helmet>
+      <Helmet>
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-      </Helmet> */}
+      </Helmet>
       <h1 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
         The Fast and Reliable URL Shortening
       </h1>
