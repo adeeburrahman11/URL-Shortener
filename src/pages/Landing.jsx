@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async"; // <-- Removed this import
 
 const Landing = () => {
   const [longUrl, setLongUrl] = useState();
@@ -38,18 +38,26 @@ const Landing = () => {
     },
   };
 
+  const pageTitle = "LinkZap - Fast and Reliable URL Shortener with Analytics";
+  const pageDescription =
+    "Shorten long URLs instantly, create custom short links, and track detailed analytics including clicks, device types, and geographic data. Generate QR codes for offline marketing.";
+
   return (
     <div className="flex flex-col items-center">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-      </Helmet>
+      {/* React 19+ automatically hoists these tags to the <head>
+       */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       <h1 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
         The Fast and Reliable URL Shortening
       </h1>
       <p className="text-center text-gray-300 mb-8 text-lg max-w-2xl">
-        Shorten long URLs instantly, create custom short links, and track
-        detailed analytics including clicks, device types, and geographic data.
-        Generate QR codes for offline marketing.
+        {pageDescription} {/* Using the variable here for consistency */}
       </p>
       <form
         onSubmit={handleShorten}
@@ -66,7 +74,17 @@ const Landing = () => {
           Shorten!
         </Button>
       </form>
-      <img src="/banner.png" alt="banner" className="w-full my-11 md:px-11" />
+      <picture>
+        <source srcSet="/banner.WebP" type="image/webp" />
+        <img
+          src="/banner.WebP"
+          alt="URL Shortener Dashboard Preview - Track clicks and analytics"
+          className="w-full my-11 md:px-11"
+          loading="lazy"
+          width="1200"
+          height="600"
+        />
+      </picture>
       <Accordion
         type="multiple"
         collapsible="true"
