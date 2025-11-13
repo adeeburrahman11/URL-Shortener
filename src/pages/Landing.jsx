@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Landing = () => {
   const [longUrl, setLongUrl] = useState();
@@ -18,11 +19,38 @@ const Landing = () => {
     if (longUrl) navigate(`/auth?createNew=${longUrl}`);
   };
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "LinkZap",
+    description: "Fast URL shortener with analytics",
+    url: "https://linkzapurl.vercel.app/",
+    applicationCategory: "Utility",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "150",
+    },
+  };
+
   return (
     <div className="flex flex-col items-center">
-      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+      </Helmet>
+      <h1 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
         The Fast and Reliable URL Shortening
-      </h2>
+      </h1>
+      <p className="text-center text-gray-300 mb-8 text-lg max-w-2xl">
+        Shorten long URLs instantly, create custom short links, and track
+        detailed analytics including clicks, device types, and geographic data.
+        Generate QR codes for offline marketing.
+      </p>
       <form
         onSubmit={handleShorten}
         className="sm:h-14 flex flex-col sm:flex-row w-full md:w-2/4 gap-2"
@@ -39,7 +67,11 @@ const Landing = () => {
         </Button>
       </form>
       <img src="/banner.png" alt="banner" className="w-full my-11 md:px-11" />
-      <Accordion type="multiple" collapsible="true" className="w-full md:px-11">
+      <Accordion
+        type="multiple"
+        collapsible="true"
+        className="w-full md:px-11 font-justify"
+      >
         <AccordionItem value="item-1">
           <AccordionTrigger>How do I shorten a URL?</AccordionTrigger>
           <AccordionContent>

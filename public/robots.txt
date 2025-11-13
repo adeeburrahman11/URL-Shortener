@@ -1,0 +1,29 @@
+# URL Shortener robots.txt
+# This file controls which pages search engines can crawl
+
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /link/
+Allow: /:id
+
+# Specific rules for Googlebot (can be more aggressive)
+User-agent: Googlebot
+Allow: /
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /link/
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /link/
+
+# Crawl delay (wait 1 second between requests)
+Crawl-delay: 1
+
+# Point search engines to your sitemap
+Sitemap: https://linkzapurl.vercel.app/sitemap.xml
